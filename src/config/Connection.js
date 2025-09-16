@@ -5,5 +5,4 @@ const Data = require('../Data/Connect')
 
 const Connections = new Client(Data)
 
-
 module.exports = Connections
