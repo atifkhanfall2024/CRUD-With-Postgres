@@ -21,4 +21,27 @@ const insertData = async (req, res) => {
   }
 };
 
-module.exports = { insertData };
+
+// get data 
+
+const fetchdata = async(req , res)=>{
+
+ try{
+
+  // const nameToFind = 'Zeeshan khan';
+//const query = 'SELECT name FROM crud_table WHERE name = $1';
+//const values = [nameToFind];
+
+  // const result = await Connection.query(query,values)
+  
+   const fetch = 'SELECT * FROM crud_table'
+  const result = await Connection.query(fetch)
+   res.status(200).json(result.rows);
+ }
+catch(err){
+      console.error('Error fetching data:', err);
+    res.status(500).json({ message: 'Server error', error: err });
+}
+}
+
+module.exports = { insertData , fetchdata };
